@@ -58,3 +58,7 @@ Para correr el proyecto necesitamos tener en local un servidor de bases de datos
 
 Instalar: npm i o npm install o yarn
 Para correr el proyecto: npm run dev
+
+### Para que el back funcione necesita
+tener un servidor xamp o pache corriendo con la base de datos market-place adjunta instalada
+las credenciales del archivo conexion segun su local y los comandos anteriores
