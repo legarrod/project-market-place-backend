@@ -24,20 +24,20 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `categoryes`
+-- Estructura de tabla para la tabla `categories`
 --
 
-CREATE TABLE `categoryes` (
+CREATE TABLE `categories` (
   `id` int(11) NOT NULL,
   `name_category` varchar(60) DEFAULT NULL,
   `image_category` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `categoryes`
+-- Volcado de datos para la tabla `categories`
 --
 
-INSERT INTO `categoryes` (`id`, `name_category`, `image_category`) VALUES
+INSERT INTO `categories` (`id`, `name_category`, `image_category`) VALUES
 (1, 'Licores', NULL),
 (2, 'Harinas y lacteos', NULL),
 (4, 'Frutas y verduras', NULL),
@@ -96,9 +96,9 @@ INSERT INTO `products` (`id`, `product_name`, `description`, `product_price`, `p
 --
 
 --
--- Indices de la tabla `categoryes`
+-- Indices de la tabla `categories`
 --
-ALTER TABLE `categoryes`
+ALTER TABLE `categories`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -127,9 +127,9 @@ ALTER TABLE `products`
 --
 
 --
--- AUTO_INCREMENT de la tabla `categoryes`
+-- AUTO_INCREMENT de la tabla `categories`
 --
-ALTER TABLE `categoryes`
+ALTER TABLE `categories`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
@@ -165,7 +165,7 @@ ALTER TABLE `orders_relations`
 -- Filtros para la tabla `products`
 --
 ALTER TABLE `products`
-  ADD CONSTRAINT `products_ibfk_2` FOREIGN KEY (`category_id`) REFERENCES `categoryes` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `products_ibfk_2` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
