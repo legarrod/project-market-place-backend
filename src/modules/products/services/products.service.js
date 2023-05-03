@@ -25,12 +25,20 @@ exports.getAllcategories = (req, res)=>{
     })
 }
 
-exports.getById = (req, res)=>{
-    const {id} = req.params;
-    const sql = `SELECT * FROM products WHERE id = ${id}`
+exports.getById = async (req, res)=>{
+    let product = await req.query.search;
+
+    if (!product) {
+        throw new Error('Producto no encontrado');
+      }
+      product = String(product); 
+
+    const formattedProduct = await product.replace(/-/g, ' ');
+
+    const sql = `SELECT * FROM products WHERE product_name = '${formattedProduct}'`
     conexion.query(sql, (error, rows)=>{
         if (error) {
-            res.jsona(error)
+            res.json(error)
         } else {
             res.json(rows)
         }
